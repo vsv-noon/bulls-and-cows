@@ -4,6 +4,7 @@ export function createDigitValidator(base: number): (char: string) => boolean {
       throw new Error('Base must be specified and char must be a valid digit');
     }
 
-    return false;
+    const parsed = parseInt(char, base);
+    return !isNaN(parsed) && parsed < base;
   };
 }
